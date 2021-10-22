@@ -32,8 +32,8 @@ namespace BackgroundTest
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(1799, 0, 1799, 892));
-            Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle1");
-            Enemy1 = new Enemy(new Rectangle(new Point(100,100 ), new Point(100, 100)), 100, this, "IdleE1");
+            Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle");
+            Enemy1 = new Enemy(new Rectangle(new Point(100,100 ), new Point(100, 100)), 100, this, "IdleE");
             // TODO: use this.Content to load your game content here
         }
 
@@ -51,6 +51,8 @@ namespace BackgroundTest
             }
             b1.Update();
             b2.Update();
+            Player1.Update();
+            Enemy1.Update();
 
             base.Update(gameTime);
         }
@@ -60,8 +62,8 @@ namespace BackgroundTest
             GraphicsDevice.Clear(Color.Blue);
 
             _spriteBatch.Begin();
-            b1.Draw(_spriteBatch);
-            b2.Draw(_spriteBatch);
+            //b1.Draw(_spriteBatch);
+            //b2.Draw(_spriteBatch);
             Player1.Draw(_spriteBatch);
             Enemy1.Draw(_spriteBatch);
             _spriteBatch.End();

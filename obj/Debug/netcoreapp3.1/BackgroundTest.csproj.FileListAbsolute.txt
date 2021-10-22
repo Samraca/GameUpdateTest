@@ -38,3 +38,17 @@ C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\Backg
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\BackgroundTest.genruntimeconfig.cache
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle1.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE1.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle10.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle2.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle3.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle4.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle5.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle6.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle7.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE10.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE2.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE3.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE4.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE5.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE6.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE7.xnb

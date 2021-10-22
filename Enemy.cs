@@ -6,13 +6,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BackgroundTest
 {
-    class Enemy : Sprite
+    class Enemy : MovingSprite
     {
         public Enemy(Rectangle newRectangle, int EnemyHealth, Game1 newRoot, String textureName)
         {
-            texture = LoadContent(newRoot,textureName);
+            
             rectangle = newRectangle;
             HealthPoints = EnemyHealth;
+            Initialize();
+            LoadContent(newRoot, textureName);
+        }
+
+        public void Update()
+        {
+            FramesPerSecond();
         }
     }
 }
