@@ -11,6 +11,8 @@ namespace BackgroundTest
 
         Scrolling b1;
         Scrolling b2;
+        Player Player1;
+        Enemy Enemy1;
 
         public Game1()
         {
@@ -22,7 +24,6 @@ namespace BackgroundTest
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -31,6 +32,8 @@ namespace BackgroundTest
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(1799, 0, 1799, 892));
+            Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle1");
+            Enemy1 = new Enemy(new Rectangle(new Point(100,100 ), new Point(100, 100)), 100, this, "IdleE1");
             // TODO: use this.Content to load your game content here
         }
 
@@ -59,6 +62,8 @@ namespace BackgroundTest
             _spriteBatch.Begin();
             b1.Draw(_spriteBatch);
             b2.Draw(_spriteBatch);
+            Player1.Draw(_spriteBatch);
+            Enemy1.Draw(_spriteBatch);
             _spriteBatch.End();
 
 

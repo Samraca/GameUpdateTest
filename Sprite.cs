@@ -10,10 +10,24 @@ namespace BackgroundTest
     {
         public Texture2D texture;
         public Rectangle rectangle;
+        public Game1 root;
+        public String textureName;
+        public int HealthPoints;
 
-        public void Draw(SpriteBatch spritebach)
+        public Texture2D LoadContent(Game1 newRoot, String newTextureName)
         {
-            spritebach.Draw(texture,rectangle,Color.White);
+            root = newRoot;
+            textureName = newTextureName;
+            return root.Content.Load<Texture2D>(textureName);
+            
+        }
+        public void Update(GameTime gametime)
+        {
+
+        }
+        public void Draw(SpriteBatch spritebatch)
+        {
+            spritebatch.Draw(texture,rectangle,Color.White);
         }
     }
 }

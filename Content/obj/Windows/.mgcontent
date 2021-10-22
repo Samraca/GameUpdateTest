@@ -6,9 +6,13 @@
   <SourceFiles>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background2.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle1.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/IdleE1.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Background.png</File>
     <File>Background2.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -36,3 +36,5 @@ C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\Backg
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\BackgroundTest.dll
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\BackgroundTest.pdb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\obj\Debug\netcoreapp3.1\BackgroundTest.genruntimeconfig.cache
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Idle1.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE1.xnb
