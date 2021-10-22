@@ -17,6 +17,9 @@ namespace BackgroundTest
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.IsFullScreen = true;
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -62,8 +65,8 @@ namespace BackgroundTest
             GraphicsDevice.Clear(Color.Blue);
 
             _spriteBatch.Begin();
-            //b1.Draw(_spriteBatch);
-            //b2.Draw(_spriteBatch);
+            b1.Draw(_spriteBatch);
+            b2.Draw(_spriteBatch);
             Player1.Draw(_spriteBatch);
             Enemy1.Draw(_spriteBatch);
             _spriteBatch.End();
