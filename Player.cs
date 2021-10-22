@@ -60,7 +60,6 @@ namespace BackgroundTest
                 Gravity.Y += 0.5f * i;
             }
 
-
             if (VectorialPosition.Y + rectangle.Height >= 700)
             {
                 hasjumped = false;
@@ -70,14 +69,10 @@ namespace BackgroundTest
             {
                 Gravity.Y = 0f;
             }
-
+            
             if (VectorialPosition.X <= -20)
             {
-                VectorialPosition.X = -20f;
-            }
-            if (VectorialPosition.X <= 0)
-            {
-                VectorialPosition.X = 0;
+                VectorialPosition.X = -20;
             }
             CardinalPosition = Vector2ToPoint(VectorialPosition, CardinalPosition);
             rectangle.X = CardinalPosition.X;
