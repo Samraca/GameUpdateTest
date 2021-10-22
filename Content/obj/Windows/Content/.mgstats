@@ -1,3 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Background.png","C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/Background.xnb","TextureProcessor","Texture2DContent",271049,2097237,0.3123094
-"C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Background2.png","C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/Background2.xnb","TextureProcessor","Texture2DContent",315673,2097237,0.0609992
+"C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background.png","C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/Background.xnb","TextureProcessor","Texture2DContent",222016,6429685,0.5517102
+"C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background2.png","C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/Background2.xnb","TextureProcessor","Texture2DContent",221158,6418917,0.2347047
