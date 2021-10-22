@@ -1,2 +1,2 @@
 # BackgroundTest
-Testing to make a moving background for a game in C# 
+Testing for an update for the RobotGame in C# 
