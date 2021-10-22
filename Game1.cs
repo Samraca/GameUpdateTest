@@ -30,7 +30,7 @@ namespace BackgroundTest
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
-            b2 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(1798, 0, 1799, 892));
+            b2 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(1799, 0, 1799, 892));
             // TODO: use this.Content to load your game content here
         }
 
@@ -54,7 +54,7 @@ namespace BackgroundTest
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Blue);
 
             _spriteBatch.Begin();
             b1.Draw(_spriteBatch);

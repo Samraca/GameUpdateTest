@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace BackgroundTest
 {
-    class Scrolling : Backgrounds
+    class Scrolling : Sprite
     {
         public Scrolling(Texture2D newTexture, Rectangle newRectangle)
         {
