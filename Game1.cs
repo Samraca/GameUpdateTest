@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+
 
 namespace BackgroundTest
 {
@@ -15,7 +17,9 @@ namespace BackgroundTest
         Scrolling b2;
         Player Player1;
         Enemy Enemy1;
-        Platform Platform1;
+
+        List<Platform> platforms = new List<Platform>();
+        
 
         public Game1()
         {
@@ -42,7 +46,10 @@ namespace BackgroundTest
             menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(0,0), new Point(1520,768)));
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background2"), new Rectangle(1799, 0, 1799, 892));
-            Platform1 = new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0,680,300,100));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0,600,88,26)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 88, 26)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 88, 26)));
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -60,15 +67,16 @@ namespace BackgroundTest
                 b2.Update();
                 Player1.Update();
                 Enemy1.Update();
+                if (b1.rectangle.X + b1.texture.Width <= 0)
+                {
+                    b1.rectangle.X = b2.rectangle.X + b2.texture.Width;
+                }
+                if (b2.rectangle.X + b2.texture.Width <= 0)
+                {
+                    b2.rectangle.X = b1.rectangle.X + b1.texture.Width;
+                }
             }
-            if (b1.rectangle.X + b1.texture.Width <= 0)
-            {
-                b1.rectangle.X = b2.rectangle.X + b2.texture.Width;
-            }
-            if (b2.rectangle.X + b2.texture.Width <= 0)
-            {
-                b2.rectangle.X = b1.rectangle.X + b1.texture.Width;
-            }
+            
 
             base.Update(gameTime);
         }
@@ -86,9 +94,13 @@ namespace BackgroundTest
             {
                 b1.Draw(_spriteBatch);
                 b2.Draw(_spriteBatch);
-                Platform1.Draw(_spriteBatch);
+                foreach (Platform Platform in platforms)
+                {
+                    Platform.Draw(_spriteBatch);
+                }
                 Player1.Draw(_spriteBatch);
                 Enemy1.Draw(_spriteBatch);
+                
             }
             _spriteBatch.End();
 
@@ -97,3 +109,5 @@ namespace BackgroundTest
         }
     }
 }
+
+

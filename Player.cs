@@ -10,9 +10,9 @@ namespace BackgroundTest
     class Player : MovingSprite
     {
         Vector2 VectorialPosition;
-        Vector2 Gravity;
+        public Vector2 Gravity;
         Point CardinalPosition;
-        bool hasjumped;
+        public bool hasjumped;
         public Player(Rectangle newRectangle, int PlayerHealth, Game1 newRoot, String textureName)
         {
             VectorialPosition.X = newRectangle.X;
@@ -60,7 +60,7 @@ namespace BackgroundTest
                 Gravity.Y += 0.5f * i;
             }
 
-            if (VectorialPosition.Y + rectangle.Height >= 700)
+            if (VectorialPosition.Y + rectangle.Height >= 600)
             {
                 hasjumped = false;
             }
@@ -87,4 +87,6 @@ namespace BackgroundTest
             return newPoint;
         }
     }
+
+
 }
