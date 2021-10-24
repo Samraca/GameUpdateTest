@@ -10,18 +10,19 @@ namespace BackgroundTest
     {
         public Texture2D texture;
         public Rectangle rectangle;
-        public Game1 root;
-        public String textureName;
         public int HealthPoints;
         
-
-        public Texture2D LoadContent(Game1 newRoot, String newTextureName)
+        /*
+        public Game1 root;
+        public String textureName;
+        public void LoadContent(Game1 newRoot, String newTextureName)
         {
             root = newRoot;
             textureName = newTextureName;
-            return root.Content.Load<Texture2D>(textureName);
+            texture=root.Content.Load<Texture2D>(textureName);
             
         }
+        */
         public void Draw(SpriteBatch spritebatch)
         {
             spritebatch.Draw(texture,rectangle,Color.White);

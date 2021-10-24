@@ -53,3 +53,4 @@ C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Conte
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE6.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\IdleE7.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Pad5.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\cyberpunk-street.xnb

@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background2.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/cyberpunk-street.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle1.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle10.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle2.png</File>
@@ -27,6 +28,7 @@
   <DestFiles>
     <File>Background.png</File>
     <File>Background2.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

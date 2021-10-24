@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:../Assets/Background2.png;Background2.png
 
+#begin cyberpunk-street.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:cyberpunk-street.png
+
 #begin Idle1.png
 /importer:TextureImporter
 /processor:TextureProcessor
