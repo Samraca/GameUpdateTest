@@ -13,5 +13,7 @@ namespace BackgroundTest
             texture = platformTexture;
             rectangle = platformRectangle;
         }
+
+        
     }
 }

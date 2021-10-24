@@ -34,7 +34,7 @@ namespace BackgroundTest
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle");
+            Player1 = new Player(new Rectangle(new Point(0, 500), new Point(100,100)), 100, this, "Idle");
             Enemy1 = new Enemy(new Rectangle(new Point(100,100 ), new Point(100, 100)), 100, this, "IdleE");
             ShowMainMenu = true;
             base.Initialize();
@@ -46,9 +46,9 @@ namespace BackgroundTest
             menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(0,0), new Point(1520,768)));
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background2"), new Rectangle(1799, 0, 1799, 892));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0,600,88,26)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 88, 26)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 88, 26)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 88 ,50)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 88, 50)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 88, 50)));
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,6 +74,14 @@ namespace BackgroundTest
                 if (b2.rectangle.X + b2.texture.Width <= 0)
                 {
                     b2.rectangle.X = b1.rectangle.X + b1.texture.Width;
+                }
+                foreach (Platform platform in platforms)
+                {
+                    
+                    if (Player1.rectangle.Intersects(platform.rectangle))
+                    {
+                        Player1.actualHeight = platform.rectangle.Top;
+                    }
                 }
             }
             
