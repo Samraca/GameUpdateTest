@@ -50,9 +50,16 @@ namespace BackgroundTest
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 ShowMainMenu = false;
+            }
+            if (ShowMainMenu==false)
+            {
+                b1.Update();
+                b2.Update();
+                Player1.Update();
+                Enemy1.Update();
             }
             if (b1.rectangle.X + b1.texture.Width <= 0)
             {
@@ -62,10 +69,6 @@ namespace BackgroundTest
             {
                 b2.rectangle.X = b1.rectangle.X + b1.texture.Width;
             }
-            b1.Update();
-            b2.Update();
-            Player1.Update();
-            Enemy1.Update();
 
             base.Update(gameTime);
         }
@@ -81,11 +84,11 @@ namespace BackgroundTest
             }
             else
             {
-            b1.Draw(_spriteBatch);
-            b2.Draw(_spriteBatch);
-            Platform1.Draw(_spriteBatch);
-            Player1.Draw(_spriteBatch);
-            Enemy1.Draw(_spriteBatch);
+                b1.Draw(_spriteBatch);
+                b2.Draw(_spriteBatch);
+                Platform1.Draw(_spriteBatch);
+                Player1.Draw(_spriteBatch);
+                Enemy1.Draw(_spriteBatch);
             }
             _spriteBatch.End();
 
