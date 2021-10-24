@@ -39,7 +39,7 @@ namespace BackgroundTest
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(100,300), new Point(608,192)));
+            menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(0,0), new Point(1520,768)));
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background2"), new Rectangle(1799, 0, 1799, 892));
             Platform1 = new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0,680,300,100));
