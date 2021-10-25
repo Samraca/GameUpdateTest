@@ -88,6 +88,27 @@ namespace BackgroundTest
             newPoint.Y = Convert.ToInt32(newVector.Y);
             return newPoint;
         }
+
+        public void IsOnTop(Rectangle platform )
+        {
+            if (rectangle.X<=platform.Right && rectangle.X>=platform.Left )
+            {
+                actualHeight = platform.Top;
+            }
+            if (!rectangle.Contains(platform) && rectangle.X>platform.Right)
+            {
+                actualHeight = 1000;
+            }
+            
+        }
+
+        public void restartPosition()
+        {
+            VectorialPosition.X = 0f;
+            VectorialPosition.Y = 0f;
+            HealthPoints = 100;
+            hasjumped = true;
+        }
     }
 
 
