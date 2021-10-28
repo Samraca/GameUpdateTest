@@ -89,15 +89,15 @@ namespace BackgroundTest
             return newPoint;
         }
 
-        public void IsOnTop(Rectangle platform )
+        public Boolean IsOnTop(Rectangle platform )
         {
-            if (rectangle.X<=platform.Right && rectangle.X>=platform.Left )
+            if (rectangle.X<=platform.Right && rectangle.X>=platform.Left && rectangle.Y<platform.Bottom)
             {
-                actualHeight = platform.Top;
+                return true;
             }
-            if (!rectangle.Contains(platform) && rectangle.X>platform.Right)
+            else
             {
-                actualHeight = 1000;
+                return false;
             }
             
         }

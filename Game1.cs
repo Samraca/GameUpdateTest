@@ -84,7 +84,12 @@ namespace BackgroundTest
             }
             foreach (Platform platform in platforms)
             {
-                Player1.IsOnTop(platform.rectangle);  
+                if (Player1.IsOnTop(platform.rectangle))
+                {
+                    Player1.actualHeight=platform.rectangle.Top;
+                }
+                
+                
             }
             
 
