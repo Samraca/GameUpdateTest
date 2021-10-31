@@ -17,8 +17,12 @@ namespace BackgroundTest
         Scrolling b2;
         Player Player1;
         Enemy Enemy1;
+        Enemy Enemy2;
+        Enemy Enemy3;
+        Level level;
 
         List<Platform> platforms = new List<Platform>();
+        List<Enemy> enemies = new List<Enemy>();
         
 
         public Game1()
@@ -35,8 +39,11 @@ namespace BackgroundTest
         {
             // TODO: Add your initialization logic here
             Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle");
-            Enemy1 = new Enemy(new Rectangle(new Point(100,100 ), new Point(100, 100)), 100, this, "IdleE");
+            Enemy1 = new Enemy(new Rectangle(300,425,100,100),100,this,"IdleE");
+            Enemy2 = new Enemy(new Rectangle(500, 325, 100, 100), 100, this, "IdleE");
+            Enemy3 = new Enemy(new Rectangle(700, 175, 100, 100), 100, this, "IdleE");
             ShowMainMenu = true;
+            level = new Level();
             base.Initialize();
         }
 
@@ -49,6 +56,9 @@ namespace BackgroundTest
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 150 ,75)));
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 150, 75)));
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 150, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(700, 250, 150, 75)));
+
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -66,13 +76,31 @@ namespace BackgroundTest
                 ShowMainMenu = true;
                 Player1.restartPosition();
             }
-            
+            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            {
+                level.setLevel(2);
+            }
+            if (level.getLevel()==2)
+            {
+                platforms.Clear();
+                Player1.restartPosition();
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 450, 150, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 600, 150, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(600, 500, 150, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(900, 300, 150, 75)));
+                Enemy1.rectangle = new Rectangle(300,525,100,100);
+                Enemy2.rectangle = new Rectangle(600,425,100,100);
+                Enemy3.rectangle = new Rectangle(900,225,100,100);
+                level.setLevel(3);
+            }
             if (ShowMainMenu==false)
             {
                 b1.Update();
                 b2.Update();
                 Player1.Update();
                 Enemy1.Update();
+                Enemy2.Update();
+                Enemy3.Update();
                 if (b1.rectangle.X + b1.texture.Width <= 0)
                 {
                     b1.rectangle.X = b2.rectangle.X + b2.texture.Width;
@@ -84,11 +112,7 @@ namespace BackgroundTest
             }
             foreach (Platform platform in platforms)
             {
-                if (Player1.IsOnTop(platform.rectangle))
-                {
-                    Player1.actualHeight=platform.rectangle.Top;
-                }
-                
+                Player1.IsOnTop(platform.rectangle);
                 
             }
             
@@ -115,6 +139,8 @@ namespace BackgroundTest
                 }
                 Player1.Draw(_spriteBatch);
                 Enemy1.Draw(_spriteBatch);
+                Enemy2.Draw(_spriteBatch);
+                Enemy3.Draw(_spriteBatch);
                 
             }
             _spriteBatch.End();

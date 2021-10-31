@@ -71,7 +71,7 @@ namespace BackgroundTest
             {
                 Gravity.Y = 0f;
             }
-            
+
             if (VectorialPosition.X <= -20)
             {
                 VectorialPosition.X = -20;
@@ -89,16 +89,13 @@ namespace BackgroundTest
             return newPoint;
         }
 
-        public Boolean IsOnTop(Rectangle platform )
+        public void IsOnTop(Rectangle platform)
         {
-            if (rectangle.X<=platform.Right && rectangle.X>=platform.Left && rectangle.Y<platform.Bottom)
+            if (rectangle.X <= platform.Right && rectangle.X >= platform.Left && rectangle.Y<=platform.Bottom )
             {
-                return true;
+                actualHeight = platform.Bottom-65;
             }
-            else
-            {
-                return false;
-            }
+            
             
         }
 
