@@ -12,6 +12,8 @@ namespace BackgroundTest
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         bool ShowMainMenu;
+        bool GameOver;
+        bool Win;
         MainMenu menu;
         Song S1;
         SpriteFont menuFont;
@@ -49,6 +51,7 @@ namespace BackgroundTest
             Enemy2 = new Enemy(new Rectangle(600, 325, 100, 100), 100, this, "IdleE");
             Enemy3 = new Enemy(new Rectangle(900, 175, 100, 100), 100, this, "IdleE");
             ShowMainMenu = true;
+            GameOver = false;
             level = new Level();
             base.Initialize();
         }
@@ -89,12 +92,25 @@ namespace BackgroundTest
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 ShowMainMenu = false;
-                //MediaPlayer.Play(S1);
+                GameOver = false;
+                MediaPlayer.Play(S1);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.L))
+            if (GameOver || Win)
             {
                 ShowMainMenu = true;
                 Player1.restartPosition();
+                platforms.Clear();
+                Enemy1.Resurrect(100);
+                Enemy2.Resurrect(100);
+                Enemy3.Resurrect(100);
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(600, 400, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(900, 250, 200, 75)));
+                Enemy1.rectangle = new Rectangle(300, 435, 100, 100);
+                Enemy2.rectangle = new Rectangle(600, 325, 100, 100);
+                Enemy3.rectangle = new Rectangle(900, 175, 100, 100);
+                level.setLevel(1);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
@@ -186,6 +202,11 @@ namespace BackgroundTest
             {
                 Player1.rectangle.Y = 1000;
                 Player1.hasjumped = false;
+                GameOver = true;
+            }
+            if (Player1.HealthPoints<=0)
+            {
+                GameOver = true;
             }
             if (Enemy1.Impact(Bullet.rectangle))
             {
@@ -211,7 +232,7 @@ namespace BackgroundTest
             GraphicsDevice.Clear(Color.Blue);
 
             _spriteBatch.Begin();
-            if (ShowMainMenu)
+            if (ShowMainMenu || GameOver)
             {
                 menu.Draw(_spriteBatch);
                 _spriteBatch.Draw(logo, new Rectangle(300,25,750,750), Color.White);
