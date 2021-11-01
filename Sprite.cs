@@ -14,7 +14,7 @@ namespace BackgroundTest
         
         public void Draw(SpriteBatch spritebatch)
         {
-            spritebatch.Draw(texture,rectangle,Color.White);
+            spritebatch.Draw(texture, rectangle, Color.White);
         }
 
         

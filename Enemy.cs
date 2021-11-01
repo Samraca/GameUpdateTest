@@ -13,7 +13,7 @@ namespace BackgroundTest
         bool isDead;
         public Enemy(Rectangle newRectangle, int EnemyHealth, Game1 newRoot, String textureName)
         {
-            
+
             rectangle = newRectangle;
             HealthPoints = EnemyHealth;
             emc11 = true;
@@ -26,9 +26,14 @@ namespace BackgroundTest
         public void Update(int leftBorder, int rightBorder)
         {
             FramesPerSecond();
-            MoveControl(leftBorder,rightBorder);
+            MoveControl(leftBorder, rightBorder);
+            if (HealthPoints<=0)
+            {
+                isDead = true;
+            }
         }
 
+        
         public void MoveLeft()
         {
             rectangle.X -= 1;
@@ -60,6 +65,32 @@ namespace BackgroundTest
                 emc11 = true;
                 emc12 = false;
             }
+        }
+
+        public bool Impact(Rectangle projectileRectangle)
+
+        {
+            if (rectangle.Contains(projectileRectangle.Center) && isDead==false)
+            {
+                HealthPoints -= 25;
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool getIsDead()
+        {
+            return isDead;
+        }
+
+        public void Resurrect(int health)
+        {
+            HealthPoints = health;
+            isDead = false;
         }
     }
 }

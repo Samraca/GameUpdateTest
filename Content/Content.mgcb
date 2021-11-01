@@ -61,6 +61,25 @@
 /processorParam:TextureFormat=Color
 /build:../Assets/MenuScreen.png;MenuScreen.png
 
+#begin Bullet0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Bullet0.png
+
+#begin Healthfont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Healthfont.spritefont
+
 #begin Idle1.png
 /importer:TextureImporter
 /processor:TextureProcessor

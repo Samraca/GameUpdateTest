@@ -59,3 +59,5 @@ C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Conte
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\menuFont.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\AOR.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\MenuScreen.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Bullet0.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Healthfont.xnb

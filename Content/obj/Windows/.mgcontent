@@ -8,6 +8,8 @@
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/background.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/background2.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/MenuScreen.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Bullet0.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Healthfont.spritefont</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle1.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle10.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Idle2.png</File>
@@ -33,6 +35,8 @@
     <File>background.png</File>
     <File>background2.png</File>
     <File>MenuScreen.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

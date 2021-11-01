@@ -15,11 +15,13 @@ namespace BackgroundTest
         MainMenu menu;
         Song S1;
         SpriteFont menuFont;
+        SpriteFont healthFont;
         Texture2D logo;
         
         Scrolling b1;
         Scrolling b2;
         Player Player1;
+        Bullet Bullet;
         Enemy Enemy1;
         Enemy Enemy2;
         Enemy Enemy3;
@@ -57,7 +59,9 @@ namespace BackgroundTest
             menu = new MainMenu(Content.Load<Texture2D>("MenuScreen"), new Rectangle(new Point(0,0), new Point(1520,768)));
             logo = Content.Load<Texture2D>("AOR");
             menuFont = Content.Load<SpriteFont>("menuFont");
+            healthFont = Content.Load<SpriteFont>("Healthfont");
             S1 = Content.Load<Song>("industrial");
+            Bullet = new Bullet(Content.Load<Texture2D>("Bullet0"), new Rectangle(0,0,75,75));
             b1 = new Scrolling(Content.Load<Texture2D>("background"), new Rectangle(0,0,1920,1080));
             b2 = new Scrolling(Content.Load<Texture2D>("background2"), new Rectangle(1920, 0, 1920, 1080));
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 200 ,75)));
@@ -74,6 +78,14 @@ namespace BackgroundTest
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            if (Keyboard.GetState().IsKeyDown(Keys.X))
+            {
+                if (Bullet.GetIsVisible() == false)
+                {
+                    Bullet.SetIsVisbible(true);
+                    Bullet.rectangle = new Rectangle(Player1.rectangle.X, Player1.rectangle.Y,75,75);
+                }
+            }
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 ShowMainMenu = false;
@@ -88,14 +100,17 @@ namespace BackgroundTest
             {
                 level.setLevel(2);
             }
-            if (level.getLevel()==2)
+            if (level.getLevel() == 2)
             {
                 platforms.Clear();
                 Player1.restartPosition();
+                Enemy1.Resurrect(200);
+                Enemy2.Resurrect(200);
+                Enemy3.Resurrect(200);
                 platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 450, 200, 75)));
                 platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 600, 200, 75)));
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(750, 500, 200, 75)));
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(1150, 300, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(700, 500, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(1100, 300, 200, 75)));
                 Enemy1.rectangle = new Rectangle(300,525,100,100);
                 Enemy2.rectangle = new Rectangle(750,425,100,100);
                 Enemy3.rectangle = new Rectangle(1150,225,100,100);
@@ -106,6 +121,7 @@ namespace BackgroundTest
                 b1.Update();
                 b2.Update();
                 Player1.Update();
+                Bullet.Update(this);
                 if (level.getLevel()==1)
                 {
                     Enemy1.Update(300,450);
@@ -131,8 +147,24 @@ namespace BackgroundTest
                 if (level.getLevel()==3)
                 {
                     Enemy1.Update(300, 450);
-                    Enemy2.Update(750, 900);
-                    Enemy3.Update(1150, 1300);
+                    Enemy2.Update(700, 900);
+                    Enemy3.Update(1100, 1300);
+                    if (Player1.rectangle.X > 150 && Player1.rectangle.X < 250)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X > 450 && Player1.rectangle.X < 650)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X > 850 && Player1.rectangle.X < 1050)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X > 1300)
+                    {
+                        Player1.Fall();
+                    }
                 }
                 if (b1.rectangle.X + b1.texture.Width <= 0)
                 {
@@ -149,12 +181,27 @@ namespace BackgroundTest
                 
             }
             
+            
             if (Player1.rectangle.Y>= 1000)
             {
                 Player1.rectangle.Y = 1000;
                 Player1.hasjumped = false;
             }
-            
+            if (Enemy1.Impact(Bullet.rectangle))
+            {
+                Bullet.SetIsVisbible(false);
+                Bullet.rectangle = new Rectangle(Player1.rectangle.X, Player1.rectangle.Y, 75, 75);
+            }
+            if (Enemy2.Impact(Bullet.rectangle))
+            {
+                Bullet.SetIsVisbible(false);
+                Bullet.rectangle = new Rectangle(Player1.rectangle.X, Player1.rectangle.Y, 75, 75);
+            }
+            if (Enemy3.Impact(Bullet.rectangle))
+            {
+                Bullet.SetIsVisbible(false);
+                Bullet.rectangle = new Rectangle(Player1.rectangle.X, Player1.rectangle.Y, 75, 75);
+            }
 
             base.Update(gameTime);
         }
@@ -174,14 +221,30 @@ namespace BackgroundTest
             {
                 b1.Draw(_spriteBatch);
                 b2.Draw(_spriteBatch);
+                Bullet.Draw(_spriteBatch);
                 foreach (Platform Platform in platforms)
                 {
                     Platform.Draw(_spriteBatch);
                 }
+                
                 Player1.Draw(_spriteBatch);
-                Enemy1.Draw(_spriteBatch);
-                Enemy2.Draw(_spriteBatch);
-                Enemy3.Draw(_spriteBatch);
+                _spriteBatch.DrawString(healthFont, "HP: " + Player1.HealthPoints, new Vector2(Player1.rectangle.X, Player1.rectangle.Y - 15), Color.White);
+                if (Enemy1.getIsDead()==false)
+                {
+                    Enemy1.Draw(_spriteBatch);
+                    _spriteBatch.DrawString(healthFont, "HP: " + Enemy1.HealthPoints, new Vector2(Enemy1.rectangle.X, Enemy1.rectangle.Y - 15), Color.Red);
+                }
+                if (Enemy2.getIsDead()==false)
+                {
+                    Enemy2.Draw(_spriteBatch);
+                    _spriteBatch.DrawString(healthFont, "HP: " + Enemy2.HealthPoints, new Vector2(Enemy2.rectangle.X, Enemy2.rectangle.Y - 15), Color.Red);
+                }
+                if (Enemy3.getIsDead()==false)
+                {
+                    Enemy3.Draw(_spriteBatch);
+                    _spriteBatch.DrawString(healthFont, "HP: " + Enemy3.HealthPoints, new Vector2(Enemy3.rectangle.X, Enemy3.rectangle.Y - 15), Color.Red);
+                }
+                
                 
             }
             _spriteBatch.End();
