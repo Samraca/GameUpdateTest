@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../Assets/Background.png
+#begin ../Assets/AOR.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Background.png;Background.png
+/build:../Assets/AOR.png;AOR.png
 
-#begin ../Assets/Background2.png
+#begin ../Assets/background.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Background2.png;Background2.png
+/build:../Assets/background.png;background.png
 
-#begin cyberpunk-street.png
+#begin ../Assets/background2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,7 +47,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:cyberpunk-street.png
+/build:../Assets/background2.png;background2.png
+
+#begin ../Assets/MenuScreen.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../Assets/MenuScreen.png;MenuScreen.png
 
 #begin Idle1.png
 /importer:TextureImporter
@@ -246,6 +258,13 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:industrial.mp3
+
+#begin menuFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:menuFont.spritefont
 
 #begin Pad5.png
 /importer:TextureImporter

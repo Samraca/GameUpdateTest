@@ -14,6 +14,8 @@ namespace BackgroundTest
         bool ShowMainMenu;
         MainMenu menu;
         Song S1;
+        SpriteFont menuFont;
+        Texture2D logo;
         
         Scrolling b1;
         Scrolling b2;
@@ -24,7 +26,7 @@ namespace BackgroundTest
         Level level;
 
         List<Platform> platforms = new List<Platform>();
-        List<Enemy> enemies = new List<Enemy>();
+        
         
 
         public Game1()
@@ -34,7 +36,7 @@ namespace BackgroundTest
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            IsMouseVisible = false;
         }
 
         protected override void Initialize()
@@ -42,8 +44,8 @@ namespace BackgroundTest
             // TODO: Add your initialization logic here
             Player1 = new Player(new Rectangle(new Point(0, 0), new Point(100,100)), 100, this, "Idle");
             Enemy1 = new Enemy(new Rectangle(300,425,100,100),100,this,"IdleE");
-            Enemy2 = new Enemy(new Rectangle(500, 325, 100, 100), 100, this, "IdleE");
-            Enemy3 = new Enemy(new Rectangle(700, 175, 100, 100), 100, this, "IdleE");
+            Enemy2 = new Enemy(new Rectangle(600, 325, 100, 100), 100, this, "IdleE");
+            Enemy3 = new Enemy(new Rectangle(900, 175, 100, 100), 100, this, "IdleE");
             ShowMainMenu = true;
             level = new Level();
             base.Initialize();
@@ -52,14 +54,16 @@ namespace BackgroundTest
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(0,0), new Point(1520,768)));
+            menu = new MainMenu(Content.Load<Texture2D>("MenuScreen"), new Rectangle(new Point(0,0), new Point(1520,768)));
+            logo = Content.Load<Texture2D>("AOR");
+            menuFont = Content.Load<SpriteFont>("menuFont");
             S1 = Content.Load<Song>("industrial");
-            b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
-            b2 = new Scrolling(Content.Load<Texture2D>("Background2"), new Rectangle(1799, 0, 1799, 892));
+            b1 = new Scrolling(Content.Load<Texture2D>("background"), new Rectangle(0,0,1920,1080));
+            b2 = new Scrolling(Content.Load<Texture2D>("background2"), new Rectangle(1920, 0, 1920, 1080));
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 200 ,75)));
             platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 200, 75)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 200, 75)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(700, 250, 200, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(600, 400, 200, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(900, 250, 200, 75)));
 
 
 
@@ -106,8 +110,8 @@ namespace BackgroundTest
                 if (level.getLevel()==1)
                 {
                     Enemy1.Update(300,450);
-                    Enemy2.Update(500,650);
-                    Enemy3.Update(700,850);
+                    Enemy2.Update(600,750);
+                    Enemy3.Update(900,1050);
                 }
                 if (level.getLevel()==3)
                 {
@@ -142,6 +146,8 @@ namespace BackgroundTest
             if (ShowMainMenu)
             {
                 menu.Draw(_spriteBatch);
+                _spriteBatch.Draw(logo, new Rectangle(300,25,750,750), Color.White);
+                _spriteBatch.DrawString(menuFont, "Press Enter to start", new Vector2(250,650), Color.White);
             }
             else
             {

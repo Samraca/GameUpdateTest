@@ -16,7 +16,7 @@ namespace BackgroundTest
 
         public void Update()
         {
-            rectangle.X -= 2;
+            rectangle.X -= 1;
         }
     }
 }

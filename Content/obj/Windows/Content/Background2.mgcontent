@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/Background2.png</SourceFile>
-  <SourceTime>2021-10-22T11:24:42.4495598-05:00</SourceTime>
-  <DestFile>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/Background2.xnb</DestFile>
-  <DestTime>2021-10-22T11:25:50.7699831-05:00</DestTime>
+  <SourceFile>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/../Assets/background2.png</SourceFile>
+  <SourceTime>2021-11-01T10:30:15.2647419-05:00</SourceTime>
+  <DestFile>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/bin/Windows/Content/background2.xnb</DestFile>
+  <DestTime>2021-11-01T10:31:24.3639801-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T11:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
