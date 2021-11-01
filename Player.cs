@@ -10,9 +10,9 @@ namespace BackgroundTest
     class Player : MovingSprite
     {
         Vector2 VectorialPosition;
-        Vector2 Gravity;
+        public Vector2 Gravity;
         Point CardinalPosition;
-        bool hasjumped;
+        public bool hasjumped;
         public int actualHeight;
         public Player(Rectangle newRectangle, int PlayerHealth, Game1 newRoot, String textureName)
         {
@@ -98,7 +98,11 @@ namespace BackgroundTest
             
             
         }
-
+        public void Fall()
+        {
+            actualHeight = 1000;
+            hasjumped = true;
+        }
         public void restartPosition()
         {
             VectorialPosition.X = 0f;

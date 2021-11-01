@@ -77,7 +77,7 @@ namespace BackgroundTest
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 ShowMainMenu = false;
-                MediaPlayer.Play(S1);
+                //MediaPlayer.Play(S1);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.L))
             {
@@ -87,7 +87,6 @@ namespace BackgroundTest
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 level.setLevel(2);
-                MediaPlayer.Stop();
             }
             if (level.getLevel()==2)
             {
@@ -112,6 +111,22 @@ namespace BackgroundTest
                     Enemy1.Update(300,450);
                     Enemy2.Update(600,750);
                     Enemy3.Update(900,1050);
+                    if (Player1.rectangle.X>150 && Player1.rectangle.X<250)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X > 450 && Player1.rectangle.X < 550)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X > 750 && Player1.rectangle.X < 850)
+                    {
+                        Player1.Fall();
+                    }
+                    if (Player1.rectangle.X>1050)
+                    {
+                        Player1.Fall();
+                    }
                 }
                 if (level.getLevel()==3)
                 {
@@ -132,6 +147,12 @@ namespace BackgroundTest
             {
                 Player1.IsOnTop(platform.rectangle);
                 
+            }
+            
+            if (Player1.rectangle.Y>= 1000)
+            {
+                Player1.rectangle.Y = 1000;
+                Player1.hasjumped = false;
             }
             
 
