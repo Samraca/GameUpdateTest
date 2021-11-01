@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Media;
 
 
 namespace BackgroundTest
@@ -12,6 +13,7 @@ namespace BackgroundTest
         private SpriteBatch _spriteBatch;
         bool ShowMainMenu;
         MainMenu menu;
+        Song S1;
         
         Scrolling b1;
         Scrolling b2;
@@ -51,12 +53,13 @@ namespace BackgroundTest
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             menu = new MainMenu(Content.Load<Texture2D>("cyberpunk-street"), new Rectangle(new Point(0,0), new Point(1520,768)));
+            S1 = Content.Load<Song>("industrial");
             b1 = new Scrolling(Content.Load<Texture2D>("Background"), new Rectangle(0,0,1799,892));
             b2 = new Scrolling(Content.Load<Texture2D>("Background2"), new Rectangle(1799, 0, 1799, 892));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 150 ,75)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 150, 75)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 150, 75)));
-            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(700, 250, 150, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 600, 200 ,75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 500, 200, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(500, 400, 200, 75)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(700, 250, 200, 75)));
 
 
 
@@ -70,6 +73,7 @@ namespace BackgroundTest
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 ShowMainMenu = false;
+                MediaPlayer.Play(S1);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.L))
             {
@@ -79,18 +83,19 @@ namespace BackgroundTest
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 level.setLevel(2);
+                MediaPlayer.Stop();
             }
             if (level.getLevel()==2)
             {
                 platforms.Clear();
                 Player1.restartPosition();
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 450, 150, 75)));
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 600, 150, 75)));
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(600, 500, 150, 75)));
-                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(900, 300, 150, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(0, 450, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(300, 600, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(750, 500, 200, 75)));
+                platforms.Add(new Platform(Content.Load<Texture2D>("Pad5"), new Rectangle(1150, 300, 200, 75)));
                 Enemy1.rectangle = new Rectangle(300,525,100,100);
-                Enemy2.rectangle = new Rectangle(600,425,100,100);
-                Enemy3.rectangle = new Rectangle(900,225,100,100);
+                Enemy2.rectangle = new Rectangle(750,425,100,100);
+                Enemy3.rectangle = new Rectangle(1150,225,100,100);
                 level.setLevel(3);
             }
             if (ShowMainMenu==false)
@@ -98,9 +103,18 @@ namespace BackgroundTest
                 b1.Update();
                 b2.Update();
                 Player1.Update();
-                Enemy1.Update();
-                Enemy2.Update();
-                Enemy3.Update();
+                if (level.getLevel()==1)
+                {
+                    Enemy1.Update(300,450);
+                    Enemy2.Update(500,650);
+                    Enemy3.Update(700,850);
+                }
+                if (level.getLevel()==3)
+                {
+                    Enemy1.Update(300, 450);
+                    Enemy2.Update(750, 900);
+                    Enemy3.Update(1150, 1300);
+                }
                 if (b1.rectangle.X + b1.texture.Width <= 0)
                 {
                     b1.rectangle.X = b2.rectangle.X + b2.texture.Width;

@@ -55,3 +55,5 @@ C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Conte
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\Pad5.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\cyberpunk-street.xnb
 C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\backgroundFlipped.xnb
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\industrial.wma
+C:\Users\samra_waefnk9\source\repos\BackgroundTest\bin\Debug\netcoreapp3.1\Content\industrial.xnb

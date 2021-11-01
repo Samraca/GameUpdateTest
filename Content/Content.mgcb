@@ -241,6 +241,12 @@
 /processorParam:TextureFormat=Color
 /build:IdleE7.png
 
+#begin industrial.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:industrial.mp3
+
 #begin Pad5.png
 /importer:TextureImporter
 /processor:TextureProcessor

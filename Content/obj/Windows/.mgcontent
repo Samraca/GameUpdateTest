@@ -23,11 +23,13 @@
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/IdleE5.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/IdleE6.png</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/IdleE7.png</File>
+    <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/industrial.mp3</File>
     <File>C:/Users/samra_waefnk9/source/repos/BackgroundTest/Content/Pad5.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Background.png</File>
     <File>Background2.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
